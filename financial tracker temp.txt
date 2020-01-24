@@ -1,3 +1,13 @@
+want to calculate time and projected amount
+graph to show expected final amount given time and starting value
+give years expected to hit goal
+
+show current stock prices
+make a calculate expense sheets + offer suggestion based on local rent + food prices
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +22,13 @@
     height: 200px;
     background: #aaa;
   }
-  .red {color: red;}
-  .blue {color: blue;}
-  .green {color: green;}
-  .yellow {color: yellow;}
-  .black {color: black;}
   </style>
 </head>
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>Networth Tracker</h1>
-  <p>Use this website to track your financial goals</p>
+  <p>Use this website to track your financial goals</p> 
 </div>
 
 <nav class="navbar navbar-inverse">
@@ -32,14 +37,15 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
       </button>
       <a class="navbar-brand" href="#">NetWorthTracker</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="expenses.html">Calculate Expenses</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
       </ul>
     </div>
   </div>
@@ -62,11 +68,11 @@
 <head>
     <script type="text/javascript">
         window.onload = function() {
-            var dps = []; //dataPoints.
+            var dps = []; //dataPoints. 
 
             var chart = new CanvasJS.Chart("chartContainer", {
                 title: {
-                    text: "Calculate your expected net worth"
+                    text: "Accepting DataPoints from User Input"
                 },
                 data: [{
                     type: "line",
@@ -77,19 +83,14 @@
             function addDataPointsAndRender() {
                 time = Number(document.getElementById("time").value);
                 amount = Number(document.getElementById("amount").value);
-		            monthlyamount = Number(document.getElementById("monthlyamount").value);
-                usbond = Number(document.getElementById("usbond").value);
-                usbond = usbond/100;
-                usstock = Number(document.getElementById("usstock").value);
-                usstock = usstock/100;
-                intstock = Number(document.getElementById("intstock").value);
-                intstock = intstock/100;
-		            var end;
-		            end = Number(document.getElementById("amount").value);
-		            for(var i = 1; i <= time; i++){
-   		              //end = end * (1.0 + 0.075) * usstock + (monthlyamount * 12);// + end * (1.0 + 0.0492) * intstock + end * (1.0 + 0.034) * usbond  + (monthlyamount * 12);
-                    end = end * (1.0 + 0.075) * usstock + end * (1.0 + 0.0492) * intstock + end * (1.0 + 0.034) * usbond  + (monthlyamount * 12)
-		            }
+		monthlyamount = Number(document.getElementById("monthlyamount").value);
+		var end;
+		end = Number(document.getElementById("amount").value);
+		for(var i = 1; i <= time; i++){
+   		 end = end * (1.0 + 0.075) + (monthlyamount * 12);
+		}
+		var temple;
+		temple  = 40000;
                 dps.push({
                     x: 1,
                     y: amount
@@ -99,63 +100,46 @@
                     y: end
                 }
 		);
+	
                 chart.render();
             }
 
             var renderButton = document.getElementById("renderButton");
-	    renderButton.addEventListener("click", addDataPointsAndRender);
-
-
+            renderButton.addEventListener("click", addDataPointsAndRender);
         }
     </script>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 
 <body>
-    Total US Stock Market Percentage:
-    <input id="usstock" type="number" step="any" placeholder="Enter Percentage"><br>
-    Total International Stock Market Percentage:
-    <input id="intstock" type="number" step="any" placeholder="Enter Percentage"><br>
-    Total US Bond Market Percentage:
-    <input id="usbond" type="number" step="any" placeholder="Enter Percentage"><br>
     Years:
-    <input id="time" type="number" step="any" placeholder="Enter Years"><br>
+    <input id="time" type="number" step="any" placeholder="Enter Years"> 
     Starting amount:
-    <input id="amount" type="number" step="any" placeholder="Enter Starting amount"><br>
+    <input id="amount" type="number" step="any" placeholder="Enter Starting amount">
     Monthly amount:
-    <input id="monthlyamount" type="number" step="any" placeholder="Enter Monthly amount"><br>
+    <input id="monthlyamount" type="number" step="any" placeholder="Enter Monthly amount">
     <button id="renderButton">Add DataPoint & Render</button>
     <div id="chartContainer" style="height: 270px; width: 100%;">
     </div>
 </body>
-  <p>Todays stock markets values </p>
- <script>
-function updateQuotes(data) {
-   for (ticker in quote) {
-    var symbol = quote[ticker];
-    document.write('<div> ' + symbol['Name'] + '</div>');
-    document.write('<div>Price of ' + ticker + ' : Close -  ' + symbol['Last'] + '</div>');
 
-	document.write('<div>Price of ' + ticker + ' : Open - ' + symbol['Open'] + '</div>');
-  //document.write("<span class='red'>Change: " + symbol['ChangePercent'] + "</span>");
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2017</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p> 
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
 
-  if(symbol['ChangePercent'] > 0){
-    document.write("<span class='green'>Change: " + symbol['ChangePercent'] + "%</span>");
-  }
-  else{
-    document.write("<span class='red'>Change: " + symbol['ChangePercent'] + "%</span>");
-  }
-	document.write("<br>");
-   }
-  }
- </script>
-
- <script src="http://feeds.financialcontent.com/JSQuote?Ticker=VOO+VXUS+FBND"></script>
 
     </div>
   </div>
 </div>
 
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Keano Zamora</p>
+</div>
+
+</body>
+</html>
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Keano Zamora</p>
 </div>

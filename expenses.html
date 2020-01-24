@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Finance Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>Networth Tracker</h1>
+  <p>Use this website to track your financial goals</p> 
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">NetWorthTracker</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Some Links</h3>
+      <p>Here are some great websites to learn more</p>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="https://www.bogleheads.org">Bogleheads</a></li>
+        <li><a href="https://www.bogleheads.org/wiki/Main_Page">Finance Wiki</a></li>
+        <li><a href="https://finance.yahoo.com/">Yahoo Finance</a></li>
+      </ul>
+
+<style type="text/css">
+        .redFont {
+            color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        function redText() {
+            var elements = document.getElementsByTagName('pre')
+            for(i=0; i< elements.length; i++)
+            {
+                if(elements[i].innerHTML < 0) {
+                   elements[i].classList.add('redFont');
+                };
+            }
+        }
+
+    </script>
+<script>
+
+  function updateQuotes(data) {
+   for (ticker in quote) {
+    var symbol = quote[ticker];
+    document.write('<div> ' + symbol['Name'] + '</div>');	
+    document.write('<div>Price of ' + ticker + ' : Close -  ' + symbol['Last'] + '</div>');
+	document.write('<div>Price of ' + ticker + ' : Low -  ' + symbol['Low'] + '</div>');
+	document.write('<div>Price of ' + ticker + ' : High -  ' + symbol['High'] + '</div>');
+	document.write('<div>Price of ' + ticker + ' : Open - ' + symbol['Open'] + '</div>');
+	
+	var str = symbol['ChangePercent'];
+	console.log(typeof str);
+	if(str > 0){
+		document.write('<div>Change : ' + str.fontcolor("green") + '</div>');
+	}
+	else
+	{
+
+	}
+	document.write("<br>");	
+   }
+  }
+ </script>
+ 
+ <script src="http://feeds.financialcontent.com/JSQuote?Ticker=VOO+VXUS+FBND"></script>
+
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2017</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p> 
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+
+
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Keano Zamora</p>
+</div>
+
+</body>
+</html>
